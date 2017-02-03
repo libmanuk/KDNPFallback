@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R]
+RewriteCond %{Request_URI} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC]
+FallbackResource /fallback.php
